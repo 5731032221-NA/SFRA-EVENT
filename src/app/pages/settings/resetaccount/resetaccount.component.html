@@ -1,0 +1,30 @@
+<div class="frame">
+  <nb-card>
+    <nb-card-header>
+    Reset Password
+    </nb-card-header>  
+    <nb-card-body style="background-color: white;">
+      <form [formGroup]="checkoutForm" (ngSubmit)="resetpass(checkoutForm.value)">
+        <div>
+          
+          <label for="username" style="padding-top: 10px;">
+            New Password: &nbsp;
+          </label>
+          <input nbInput fullWidth id="username"  type="password" class="textfield" formControlName="username">
+        </div>
+        <div>
+          <label for="password" style="padding-top: 10px;">
+            Confirm Password: &nbsp;
+          </label>
+          <input nbInput fullWidth id="password" type="password" class="textfield" formControlName="password">
+        </div>
+        <a style="color: red;"  *ngIf="showerr">Password do not match<br></a>
+        <a style="color: red;"  *ngIf="showerr1">Password should contain at least one lower case<br></a>
+        <a style="color: red;"  *ngIf="showerr2">Password should contain at least one upper case<br></a>
+        <a style="color: red;"  *ngIf="showerr3">Password should contain at least 8 characters<br></a>
+        <br>
+        <button nbButton status="primary" type="submit" style=" font-size: 12px; background-color: #FF7701; color: white; border-color: #FF7701;"> <img src="../assets/images/confirm.png"  style="width: 15px; height: 15px;"/>&nbsp;Comfirm</button>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>

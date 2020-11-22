@@ -1,0 +1,70 @@
+  <nb-card>
+
+
+
+    <nb-card-header>
+      <div style="color: #ff7701;">&#9125; Export </div>
+    </nb-card-header>
+    
+    <nb-card-body>
+      <table>
+        <tr>
+        <td style="font-weight: bold; color: #717171;">Please Select Date &nbsp;</td>  
+        <td style="color: #ff7701;"> From :: </td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input matInput [matDatepicker]="picker" (dateChange)="toplist('startDate', $event)">
+                     
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+
+           </mat-form-field>
+
+        </td>
+        <td style="color: #ff7701;">To :: </td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input matInput [matDatepicker]="picker2" (dateChange)="toplist('EndDate', $event)">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 [startAt]="endDate"></mat-datepicker>
+          </mat-form-field>
+        </td>
+        </tr>
+      </table>
+      <!-- <button (click)="exportAsXLSX()"></button> -->
+      <div style="position: absolute;top: 0px;right: 16px; top: 15px; ">
+        <button nbButton status="primary" type="submit" (click)="exportAsXLSX()" style=" font-size: 12px; background-color: #FF7701; color: white; border-color: white;" ><img src="../assets/images/excel.png"  style="width: 21px; height: 21px;"/>&nbsp;Export</button>
+      </div>
+      <table mdbTable style="  width: 100%; margin-top: 20px;">
+        <thead>
+          <tr>
+            <th style="font-size: 15px; height: 40px; background-color: #EBEBEB; color: #717171;  text-align: center;"
+              *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of dataSource | paginate: { itemsPerPage: 15, currentPage: p }"
+            [ngStyle]="{'width':column === 'รหัสพนักงาน' ? '100px' : '' }">
+            <td style="text-align: center; padding: 10px 0;" scope="row">{{el.id}}</td>
+            <td style="text-align: left; padding-left: 2%;">{{el.title}} {{el.name}} {{el.surname}}</td>
+            <td>{{el.date}}</td>
+            <td>{{el.checkinEmotion.gender}}</td>
+            <td style="color:#036ffc;">{{el.checkinEmotion.age}}</td>
+            <td style="color:#036ffc;">{{el.checkin}}</td>
+            <td style="color:#036ffc;text-align: left; padding-left: 5%;">{{el.checkinEmo}}</td>
+            <td style="color: #06ba33;">{{el.checkoutEmotion.age}}</td>
+            <td style="color: #06ba33;">{{el.checkout}}</td>
+            <td style="color: #06ba33;">{{el.checkoutEmo}}</td>
+  
+          </tr>
+        </tbody>
+  
+      </table>
+      <br> 
+      <div style="text-align:center;"> <pagination-controls (pageChange)="p = $event"></pagination-controls> </div>
+    </nb-card-body>
+  
+  
+  </nb-card>

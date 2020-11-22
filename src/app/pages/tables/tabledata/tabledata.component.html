@@ -1,0 +1,52 @@
+<nb-card>
+  <nb-card-header>
+    <div style="color: #ff7701;">&#9125; Employee Info.</div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <!-- <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table> -->
+    <table mdbTable style="width: 100%;">
+      <thead>
+        <tr>
+          <th style="font-size: 15px; height: 40px; background-color: #EBEBEB; color: #717171;  text-align: center;"
+            *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let el of dataSource | paginate: {id: 'main', itemsPerPage: 6, currentPage: p }"
+          [ngStyle]="{'width':column === 'รหัสพนักงาน' ? '100px' : '' }">
+          <td (click)="attendanceDialog(el.id)"><img [src]="el.decimage"></td>
+          <td style="text-align: center; " scope="row" (click)="attendanceDialog(el.id)">{{el.id}}</td>
+          <td style="text-align: left;" (click)="attendanceDialog(el.id)">{{el.title}} {{el.name}} {{el.surname}}</td>
+          <td style="text-align: left;" (click)="attendanceDialog(el.id)">{{el.position}}</td>
+          <td style="text-align: left;" (click)="attendanceDialog(el.id)">{{el.email}}</td>
+          <td style="color:#1e76fa;" (click)="attendanceDialog(el.id)">{{el.checkin}}</td>
+          <td style="color:#04d632;" (click)="attendanceDialog(el.id)">{{el.checkout}}</td>
+          <td><a style="padding-top: 20px;"><br><a style="text-align: left; padding-left: 10px; size: 10px; ">> {{el.per}}%</a></a><button
+              nbButton status="warning" style=" font-size: 12px; background-color: #FF7701; color: white; margin-bottom: 20px;" type="button"
+              class="close" aria-label="Close" (click)="editDialog(el.id,el.per)">
+              <img src="../assets/images/edit.png" style="width: 14px; height: 13px; " /></button>
+          </td>
+          <div style="margin: auto; padding: 15px;">
+            <button nbButton status="warning" style=" font-size: 12px; background-color: #FF7701; color: white;"
+              id="edit" (click)="emoDialog(el._id, el.id, el.faceid)"> <img src="../assets/images/edit.png"
+                style="width: 15px; height: 15px;" />&nbsp;Edit</button>
+            &nbsp;
+            &nbsp;
+            <button nbButton status="danger"
+              style=" font-size: 12px; background-color: #C7C7C7; border-color: #C7C7C7; color: white;" id="remove"
+              (click)="deleteDialog(el._id, el.id, el.faceid)"><img src="../assets/images/delete.png"
+                style="width: 14px; height: 13px;" />&nbsp;Delete</button>
+
+            <!-- <nb-icon id="edit" (click)="editRow(el._id)" [icon]="arrow-down-c" pack="ion"></nb-icon> -->
+          </div>
+        </tr>
+      </tbody>
+
+    </table>
+    <div style="text-align:center">
+      <pagination-controls id="main" (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </nb-card-body>
+</nb-card>

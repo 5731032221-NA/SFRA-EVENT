@@ -1,0 +1,96 @@
+<!-- <script src="http://code.highcharts.com/modules/exporting.js"></script><nb-card> -->
+<nb-card>
+
+
+
+  <nb-card-header>
+    <div style="color: #ff7701;">&#9125; Export </div>
+  </nb-card-header>
+
+  <nb-card-body>
+
+    <form class="form-inline" [formGroup]="myForm">
+      <div class="form-group hidden">
+        <div class="input-group">
+          <input name="datepicker" class="form-control" ngbDatepicker #datepicker="ngbDatepicker"
+            [autoClose]="'outside'" (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+            outsideDays="hidden" [startDate]="fromDate!" [minDate]="{year: 2020, month: 4, day: 20}" [maxDate]="maxDate" style="visibility: hidden;">
+          <ng-template #t let-date let-focused="focused" >
+            <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.disabled]='isDisble(date)'
+              [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null">
+              {{ date.day }}
+            </span>
+          </ng-template>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <a style="margin-top: 10px; padding-right: 6px;">From </a>
+          <input #dpFromDate class="form-control" placeholder="yyyy-mm-dd" name="dpFromDate"
+            [value]="formatter.format(fromDate)" (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+              <i class="fas fa-calendar-alt fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group ml-2">
+        <div class="input-group">
+          <a style="margin-top: 10px; padding-right: 6px;">To </a>
+          <input #dpToDate class="form-control" placeholder="yyyy-mm-dd" name="dpToDate" 
+            [value]="formatter.format(toDate)" (input)="toDate = validateInput(toDate, dpToDate.value)">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"><i class="fas fa-calendar-alt fa-fw"></i></button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <hr />
+    <!-- <pre>From date model: {{ fromDate | json }}</pre>
+    <pre>To date model: {{ toDate | json }}</pre> -->
+
+    <div style="position: absolute;top: 0px;right: 16px; top: 15px; ">
+      <button nbButton status="primary" type="submit" (click)="exportAsXLSX()"
+        style=" font-size: 12px; background-color: #FF7701; color: white; border-color: white;"><img
+          src="../assets/images/excel.png" style="width: 21px; height: 21px;" />&nbsp;Export</button>
+    </div>
+    <table mdbTable style="  width: 100%; margin-top: 20px; ">
+      <thead>
+        <tr>
+          <th style="font-size: 15px; height: 40px; background-color: #EBEBEB; color: #717171;  text-align: center;"
+            *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let el of dataSource | paginate: { itemsPerPage: 15, currentPage: p }"
+          [ngStyle]="{'width':column === 'รหัสพนักงาน' ? '100px' : '' }">
+          <td style="text-align: center; padding: 10px 0;" scope="row">{{el.id}}</td>
+          <td style="text-align: left; padding-left: 2%;">{{el.title}} {{el.name}} {{el.surname}}</td>
+          <td>{{el.date}}</td>
+          <td>{{el.checkinEmotion.gender}}</td>
+          <td style="color:#036ffc;">{{el.checkinEmotion.age}}</td>
+          <td style="color:#036ffc;">{{el.checkin}}</td>
+          <td style="color:#036ffc;text-align: left; padding-left: 5%;">{{el.checkinEmo}}</td>
+          <td style="color: #06ba33;">{{el.checkoutEmotion.age}}</td>
+          <td style="color: #06ba33;">{{el.checkout}}</td>
+          <td style="color: #06ba33;">{{el.checkoutEmo}}</td>
+
+        </tr>
+      </tbody>
+
+    </table>
+    <div style="height: 100px; align-items: center; text-align: center;margin-top: 10%;" *ngIf="empty" >
+    <a style="font-size: 50px; align-self: center; color: #777;">NO DATA</a>
+    </div>
+    <br>
+    <div style="text-align:center; ">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
+  </nb-card-body>
+
+
+</nb-card>

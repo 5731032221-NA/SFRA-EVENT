@@ -1,0 +1,307 @@
+@import '../../../@theme/styles/themes';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+  // img {
+  //   width: 100px;
+  //   height: 117px;
+  // }
+ 
+  img {
+    pointer-events: none;
+}
+  tr {text-align: center;}
+
+  tr:nth-child(even) {background-color: #FFEE99;
+    }
+    .form-inline [fullWidth] {
+      flex: 1;
+    }
+    
+    .form-inline > * {
+      margin: 0 1.5rem 1.5rem 0;
+    }
+    
+    nb-card.inline-form-card nb-card-body {
+      padding-bottom: 0;
+    }
+    /*---------------Card 1----------------------*/
+    .card1{
+      background-color: #ff7701;
+      border-radius: 0.5rem;
+      width: 170px;
+    }
+    .card1:hover{
+      background-color: rgb(253, 101, 0);
+      border-radius: 0.5rem;
+    }
+    .card1:hover .tc1_1{
+      background-color: rgb(253, 101, 0);
+    
+    }  
+    .t_detail1{
+      border-radius: 0.4rem;
+      color: #ffffff;
+      width: 170px;
+      height: 30%;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .tc1_1{
+      background-color: #ff7701;
+      border-radius: 0 0 0.4rem 0.4rem;
+      padding: 5% 0% 15% 0%;
+      font-size: 22px;
+    }
+    .tc1_2{
+      padding:10% 20px 10% 5%; 
+      background-color: rgba(255, 149, 56, 1);
+      border-radius: 0 0.4rem 0.4rem 0;
+    }
+    /*---------------Card 2----------------------*/
+    .card2{
+      background-color: #53a9f2;
+      border-radius: 0.5rem;
+      width: 170px;
+    }
+    .card2:hover{
+      background-color: #367cd8;
+      border-radius: 0.5rem;
+    }
+    .card2:hover .tc2_1{
+      background-color: #367cd8;
+    
+    }
+     
+    .t_detail2{
+      border-radius: 0.4rem;
+      color: #ffffff;
+      width: 170px;
+      height: 30%;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .tc2_1{
+      background-color: #53a9f2;
+      border-radius: 0 0 0.4rem 0.4rem;
+      padding: 5% 0% 15% 0%;
+      font-size: 22px;
+    }
+    .tc2_2{
+      padding:10% 5% 10% 5%; 
+      background-color: #8ecbfa;
+      border-radius: 0 0.4rem 0.4rem 0;
+    }
+    /*---------------Card 3----------------------*/
+    .card3{
+      background-color: #ff6b4d;
+      border-radius: 0.5rem;
+      width: 170px;
+    }
+    .card3:hover{
+      background-color: #f55535;
+      border-radius: 0.5rem;
+    }
+    .card3:hover .tc3_1{
+      background-color: #f55535;
+    
+    }
+     
+    .t_detail3{
+      border-radius: 0.4rem;
+      color: #ffffff;
+      width: 170px;
+      height: 100%;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .tc3_1{
+      background-color: #ff6b4d;
+      border-radius: 0 0 0.4rem 0.4rem;
+      padding: 5% 0% 15% 0%;
+      font-size: 22px;
+    }
+    .tc3_2{
+      padding:10% 5% 10% 5%; 
+      background-color: #ff9f8c;
+      border-radius: 0 0.4rem 0.4rem 0;
+    }
+
+  /*---------------Card 4----------------------*/
+  .card4{
+    background-color: #7d7d7d;
+    border-radius: 0.5rem;
+    width: 170px;
+  }
+  .card4:hover{
+    background-color: #696666;
+    border-radius: 0.5rem;
+  }
+  .card4:hover .tc4_1{
+    background-color: #696666;
+  
+  }
+   
+  .t_detail4{
+    border-radius: 0.4rem;
+    color: #ffffff;
+    width: 170px;
+    height: 100%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .tc4_1{
+    background-color: #7d7d7d;
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 5% 0% 15% 0%;
+    font-size: 22px;
+  }
+  .tc4_2{
+    padding:10% 5% 10% 5%; 
+    background-color: #bfbfbd;
+    border-radius: 0 0.4rem 0.4rem 0;
+  }
+  /*---------------Card 5----------------------*/
+  .card5{
+    background-color: #4ec873;
+    border-radius: 0.5rem;
+    width: 170px;
+  }
+  .card5:hover{
+    background-color: #32b95a;
+    border-radius: 0.5rem;
+  }
+  .card5:hover .tc5_1{
+    background-color: #32b95a;
+  
+  }
+   
+  .t_detail5{
+    border-radius: 0.4rem;
+    color: #ffffff;
+    width: 170px;
+    height: 100%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .tc5_1{
+    background-color: #4ec873;
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 5% 0% 15% 0%;
+    font-size: 22px;
+  }
+  .tc5_2{
+    padding:10% 5% 10% 5%; 
+    background-color: #7bd69d;
+    border-radius: 0 0.4rem 0.4rem 0;
+  }
+  /*---------------Card 6 Male Session----------------------*/
+  .card6m{
+    background-color: rgba(22, 92, 188, 0.99);
+    border-radius: 0.5rem;
+    width: 150px;
+    margin-top: 8px;
+  }
+  .card6m:hover{
+    background-color:rgb(1, 85, 202);
+    border-radius: 0.5rem;
+  }
+  .card6m:hover .tc6m_1{
+    background-color:rgb(1, 85, 202);
+  } 
+  .t_detail6m{
+    border-radius: 0.4rem;
+    color: #ffffff;
+    width: 150px;
+    height: 100%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .tc6m_1{
+    background-color: rgba(22, 92, 188, 0.99);
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 5% 0% 10% 0%;
+    font-size: 22px;
+  }
+  .tc6m_2{
+    padding:10% 5% 10% 5%; 
+    background-color: #467bc5;
+    border-radius: 0 0.4rem 0.4rem 0;
+  }
+
+
+  .card6{
+    background-color: rgba(22, 92, 188, 0.99);
+    border-radius: 0.5rem;
+    width: 150px;
+    margin-top: 8px;
+  }
+  .t_detail6{
+    border-radius: 0.4rem;
+    color: #ffffff;
+    width: 150px;
+    height: 100%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .tc6_1{
+    background-color: rgba(22, 92, 188, 0.99);
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 5% 0% 10% 0%;
+    font-size: 22px;
+  }
+  .tc6_2{
+    padding:10% 5% 10% 5%; 
+    background-color: #467bc5;
+    border-radius: 0 0.4rem 0.4rem 0;
+  }
+  /*---------------Card 7 Female Session----------------------*/
+  .card7{
+    background-color: rgba(235, 71, 70, 0.99);
+    border-radius: 0.5rem;
+    width: 150px;
+    margin-top: 8px;
+  }
+   
+  .t_detail7{
+    border-radius: 0.4rem;
+    color: #ffffff;
+    width: 150px;
+    height: 100%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .tc7_1{
+    background-color: rgba(235, 71, 70, 0.99);
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 5% 0% 10% 0%;
+    font-size: 22px;
+  }
+  .tc7_2{
+    padding:10% 5% 10% 5%; 
+    background-color: #f09d9d;
+    border-radius: 0 0.4rem 0.4rem 0;
+  }
+  // button:hover {
+  //   background-color: rgb(243, 200, 119); /* Green */
+  //   color: black;
+  // }
+  // th {
+  //   background-color: #FFA500;
+  //   color: white;
+  // }
+  // th.id {
+  //   width: 40% ;
+  // }
+
+}

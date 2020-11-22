@@ -1,0 +1,46 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+img {
+  width: 50px;
+  height: 58px;
+  border-radius: 5px;
+  pointer-events: none;
+}
+.frame_male {
+  background-color: rgb(231, 243, 248); 
+  border: rgba(22, 92, 188, 0.6);
+  border-width: 2px; 
+  border-radius: 10px; 
+  border-style: solid; 
+  display: block; 
+  text-align: center;
+  }
+  .hd_male{
+  color: rgba(22, 92, 188, 0.9);
+  font-size: 19px;
+  }
+  .tablebg_male{
+  background-color: rgba(22, 92, 188, 0.2);
+  }
+  .hl_male{
+    color: #0189f8;
+  }
+
+  .frame_female {
+    background-color: rgb(248, 234, 231); 
+    border: rgba(235, 71, 70, 0.6);
+    border-width: 2px; 
+    border-radius: 10px; 
+    border-style: solid; 
+    display: block; 
+    text-align: center;
+    }
+    .hd_female{
+    color: rgba(235, 71, 70, 0.9);
+    font-size: 19px;
+    }
+    .tablebg_female{
+    background-color: rgba(235, 71, 70, 0.2);
+    }
+    .hl_female{
+      color: rgb(134, 16, 16);
+    }

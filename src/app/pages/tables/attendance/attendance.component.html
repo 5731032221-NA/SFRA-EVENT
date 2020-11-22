@@ -1,0 +1,60 @@
+<div class="frame">
+  
+  <h1 mat-dialog-title class="hd"> <img [src]="profileimage" /> &nbsp; &nbsp; {{title}} {{name}} {{surname}} {{ID}}</h1>
+
+  <div >
+    <table mdbTable style="width: 100%;">
+      <thead>
+
+        <tr class="tablebg">
+          <th>วันที่</th>
+          <th>เพศขาเข้า</th>
+          <th>อายุขาเข้า</th>
+          <th>เวลาเข้า</th>
+          <th>อารมณ์เข้างาน</th>
+          <th>#</th>
+          <th>เพศขาออก</th>
+          <th>อายุขาออก</th>
+          <th>เวลาออก</th>
+          <th>อารมณ์ออกงาน</th>
+          <th>#</th>
+        </tr>
+
+
+      </thead>
+      <tbody>
+        <tr mdbTableCol
+          *ngFor="let el of dataSource |  paginate: {id: 'popup', currentPage: p2, itemsPerPage: itemsPerPage2 };">
+          <!-- <td>{{el.Date}}</td>
+          <td>{{el.checkin.emotion.gender}}</td>
+          <td>{{el.checkin.emotion.age}}</td>
+          <td>{{el.checkin.time}}</td>
+          <td>{{el.emotion1}}</td>
+          <td>{{el.checkout.emotion.gender}}</td>
+          <td>{{el.checkout.emotion.age}}</td>
+          <td>{{el.checkout.time}}</td>
+          <td>{{el.emotion2}}</td> -->
+          <td>{{el.date}}</td>
+          <td>{{el.checkinEmotion.gender}}</td>
+          <td>{{el.checkinEmotion.age}}</td>
+          <td>{{el.checkin}}</td>
+          <td>{{el.checkinEmo}}</td>
+          <td> <img class="tb" [src]="el.image1" /></td>
+          <!-- <td>{{el.checkoutdatetime}}</td> -->
+          <td>{{el.checkoutEmotion.gender}}</td>
+          <td>{{el.checkoutEmotion.age}}</td>
+          <td>{{el.checkout}}</td>
+          <td>{{el.checkoutEmo}}</td>
+          <td style="width: 70px;"> <img class="tb" [src]="el.image2" *ngIf="el.showimg"/></td>
+
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+  <pagination-controls id="popup" (pageChange)="p2 = $event"></pagination-controls>
+
+  <!-- <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Close</button>
+  </div> -->
+</div>

@@ -1,0 +1,214 @@
+<nb-card>
+  <nb-card-header>
+    Daily Dashboard
+  </nb-card-header>
+
+  <nb-card-body>
+
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Employee</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{empcount}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Ontime</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{ontimecount}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Late</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{latecount}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Ansent</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{ansentcount}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Overtime</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{overtimecount}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-1">
+      </div>
+      <img src="assets/images/Happy_O.png" height="40" width="40"><img src="assets/images/Surprised_O.png" height="40"
+        width="40">
+      <div class="col-lg-1">
+      </div>
+    </div>
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-8">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors">
+        </canvas>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-1">
+      </div>
+      <img src="assets/images/Sadness_O.png" height="40" width="40"><img src="assets/images/Fear_O.png" height="40"
+        width="40">
+      <img src="assets/images/Disgust_O.png" height="40" width="40"><img src="assets/images/Contempt_O.png" height="40"
+        width="40">
+      <img src="assets/images/Angry_O.png" height="40" width="40">
+      <div class="col-lg-1">
+      </div>
+    </div>
+
+
+    <!-- <a style="color:#2993d9; font-size: 30px; ">Happy </a>
+    <a style="color: #d93229; font-size: 30px; ">Unhappy </a>
+    <a style="color: #adadaa; font-size: 30px; ">Neutral </a> -->
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2" style="border-style: groove;">
+      <div class="col-lg-8">
+        <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+
+          <div class="col-lg-2"><img src="assets/images/male.png" height="100" width="100"></div>
+
+          <div class="col-lg-2">
+            <h4 style="margin-top: auto; color: #7a7877; font-size: 50px; align-self: center; ">{{malecount}}</h4>
+          </div>
+          <div class="col-lg-8">
+            <canvas baseChart [datasets]="maleBarChartData" [labels]="ChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors2">
+            </canvas>
+          </div>
+          <div class="col-lg-4">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Entry</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{maleentrycount}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Exit</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{maleexitcount}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2" style="border-style: groove;">
+      <div class="col-lg-8">
+        <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+
+          <div class="col-lg-2"><img src="assets/images/female.png" height="100" width="100"></div>
+
+          <div class="col-lg-2">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{femalecount}}</h4>
+          </div>
+          <div class="col-lg-8">
+            <canvas baseChart [datasets]="femaleBarChartData" [labels]="ChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors2">
+            </canvas>
+          </div>
+          <div class="col-lg-4">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Entry</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{femaleentrycount}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card">
+          <div class="card-title" style="background-color: #e8e4e1; padding-bottom: 5px;">
+            <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">Exit</b>
+          </div>
+          <div class="card-body">
+            <h4 style="color: #7a7877; font-size: 50px; align-self: center; ">{{femaleexitcount}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-6">
+        <h4 style="color: #7a7877; font-size: 30px; align-self: center; ">The best employee</h4>
+      </div>
+      <div class="col-lg-6">
+        <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+          <img [src]="bestEmpImg" />
+          <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">name: {{empcount}}</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-6">
+        <h4 style="color: #7a7877; font-size: 30px; align-self: center; ">Happiness Person</h4>
+      </div>
+      <div class="col-lg-6">
+        <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+          <img [src]="bestEmpImg" />
+          <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">name: {{empcount}}</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-6">
+        <h4 style="color: #7a7877; font-size: 30px; align-self: center; ">MEA Lovers</h4>
+      </div>
+      <div class="col-lg-6">
+        <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+          <img [src]="bestEmpImg" />
+          <b style="color: #7a7877;padding-left: 3%; font-size: 15px; align-self: center; ">name: {{empcount}}</b>
+        </div>
+      </div>
+    </div>
+
+  </nb-card-body>
+</nb-card>

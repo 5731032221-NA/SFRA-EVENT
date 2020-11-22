@@ -1,0 +1,121 @@
+// @import '../../../@theme/styles/themes';
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~highlight.js/styles/github.css';
+
+.form-inline [fullWidth] {
+  flex: 1;
+}
+
+.form-inline > * {
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+  padding-bottom: 0;
+}
+
+.form-group.hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+.custom-day.disabled{
+  color: #999;
+  background-color: #DDD;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(odd) {
+  background-color: #FFF;
+}
+// @include nb-install-component() {
+//   mat-form-field {
+//     margin-right: 12px;
+//     background-color: white;
+//     background-blend-mode: normal;
+//   }
+//   mat-date-picker{
+//     background-color: white;
+//   }
+//   mat-date-picker  {
+//     width: 216px;
+//     height: auto;
+//     margin: 5px auto 0;
+//     font: 9pt Arial, sans-serif;
+//     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+//     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+//     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+//     background-color: #FFF;
+// }
+  
+  // nb-card {
+  //   transform: translate3d(0, 0, 0);
+  // }
+  // // img {
+  // //   width: 100px;
+  // //   height: 117px;
+  // // }
+  // tr {text-align: center;}
+  // tr:nth-child(even) {background-color: #FFEE99;
+  //   }
+  //   .form-inline [fullWidth] {
+  //     flex: 1;
+  //   }
+    
+  //   .form-inline > * {
+  //     margin: 0 1.5rem 1.5rem 0;
+  //   }
+    
+  //   nb-card.inline-form-card nb-card-body {
+  //     padding-bottom: 0;
+  //   }
+  //   /*---------------Card 1----------------------*/
+  //   .card1{
+  //     background-color: #ff7701;
+  //     border-radius: 0.5rem;
+  //     width: 170px;
+  //   }
+  //   .card1:hover{
+  //     background-color: rgb(253, 101, 0);
+  //     border-radius: 0.5rem;
+  //   }
+  //   .card1:hover .tc1_1{
+  //     background-color: rgb(253, 101, 0);
+    
+  //   }  
+
+
+// }

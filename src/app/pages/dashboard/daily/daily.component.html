@@ -1,0 +1,389 @@
+<!-- <ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <div class="input-group">
+          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template> -->
+<nb-card>
+  <nb-card-header>
+    <div style="color: #ff7701;">&#9125; DAILY DASHBOARD </div>
+  </nb-card-header>
+
+  <nb-card-body>
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-2">
+        <div class="card1" (click)="empDialog()">
+          <div class="card-title1">
+            <table class="t_detail1">
+              <tr>
+                <td style="padding: 20px 10px 0 10px;">Employee</td>
+                <td rowspan="2" class="tc1_2"><img src="assets/images/m_overall.png" width="60px" /></td>
+              </tr>
+              <tr>
+                <td class="tc1_1">{{empcount}}</td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card2" (click)="ontimeDialog()">
+          <div class="card-title2">
+            <table class="t_detail2">
+              <tr>
+                <td style="padding: 20px 10px 0 10px;">Ontime</td>
+                <td rowspan="2" class="tc2_2"><img src="assets/images/m_ontime.png" width="60px" /></td>
+              </tr>
+              <tr>
+                <td class="tc2_1">{{ontimecount}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card3" (click)="lateDialog()">
+          <div class="card-title3">
+            <table class="t_detail3">
+              <tr>
+                <td style="padding: 20px 10px 0 10px;">Late</td>
+                <td rowspan="2" class="tc3_2"><img src="assets/images/m_late.png" width="50px" /></td>
+              </tr>
+              <tr>
+                <td class="tc3_1">{{latecount}}</td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card4" (click)="absentDialog()">
+          <div class="card-title4">
+            <table class="t_detail4">
+              <tr>
+                <td style="padding: 20px 10px 0 10px;">Absent</td>
+                <td rowspan="2" class="tc4_2"><img src="assets/images/m_absent.png" width="60px" /></td>
+              </tr>
+              <tr>
+                <td class="tc4_1">{{ansentcount}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card5" (click)="overtimeDialog()">
+          <div class="card-title5">
+            <table class="t_detail5">
+              <tr>
+                <td style="padding: 20px 10px 0 10px;">Overtime</td>
+                <td rowspan="2" class="tc5_2"><img src="assets/images/m_overtime.png" width="60px" /></td>
+              </tr>
+              <tr>
+                <td class="tc5_1">{{overtimecount}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------------------------- Session Two - Emotional Graph ---------------------------------->
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-12">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors" height="50px">
+        </canvas>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+      <div class="col-lg-1">
+      </div>
+
+      <div class="col-lg-1">
+      </div>
+    </div>
+
+
+    <!------------------SESSION TREE EMOTIONAL GROUP ---------------->
+    <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)">
+      <mat-button-toggle value="Overall">
+        Overall
+      </mat-button-toggle>
+      <mat-button-toggle value="Happy">
+        Happy
+      </mat-button-toggle>
+      <mat-button-toggle value="Unhappy">
+        Unhappy
+      </mat-button-toggle>
+      <mat-button-toggle value="Neutral">
+        Neutral
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <!-- <div class="example-selected-value">Selected value: {{group.value}}</div>     -->
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto"
+      style="border-color:#ece2e2; border-style:ridge; border-width: 1px; width: 100%; margin: -1.5px 0 0 0">
+      <div class="col-lg-8">
+        <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+
+          <div class="col-lg-2" style="background-color: rgba(22, 92, 188, 0.6); border-radius: 10px 0  0 10px; display:flex; align-items: center;
+          justify-content: center; ">
+            <div (click)="emoDialog('male')">
+              <img src="{{'assets/images/male_'+emoicon+'.png'}}" width="32">
+            </div>
+          </div>
+
+          <div class="col-lg-2" style="background-color: rgba(22, 92, 188, 1); border-radius: 0 10px  10px 0; display:flex; align-items: center;
+          justify-content: center;">
+            <div (click)="emoDialog('male')">
+              <h4 style="color: #ffffff; font-size: 50px; ">{{maleentrycount}}</h4>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <canvas baseChart [datasets]="maleBarChartData" [labels]="ChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors1" height="70px">
+            </canvas>
+          </div>
+          <div class="col-lg-4">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card6">
+          <div class="card-title6">
+            <table class="t_detail6">
+              <tr>
+                <td style="padding: 20px 0px 0 10px;">Average <br />Walk-In</td>
+                <td rowspan="2" class="tc6_2"><img src="assets/images/entry.png" width="40px" /></td>
+              </tr>
+              <tr>
+                <td class="tc6_1">{{maleavgwalkin}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-2">
+        <div class="card6">
+          <div class="card-title6">
+            <table class="t_detail6">
+              <tr>
+                <td style="padding: 20px 0px 0 10px;">Average <br />Walk-Out </td>
+                <td rowspan="2" class="tc6_2"><img src="assets/images/exit.png" width="40px" /></td>
+              </tr>
+              <tr>
+                <td class="tc6_1">{{maleavgwalkout}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto"
+      style="border-color:#ece2e2; border-style:ridge; border-width: 1px; width: 100%; margin: -1px 0 0 0">
+      <div class="col-lg-8">
+        <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2">
+
+          <div class="col-lg-2" style="background-color: rgba(235, 71, 70, 0.6); border-radius: 10px 0  0 10px; display:flex; align-items: center;
+          justify-content: center; ">
+            <div (click)="emoDialog('female')">
+              <img src="{{'assets/images/female_'+emoicon+'.png'}}" width="40">
+            </div>
+          </div>
+          <div class="col-lg-2" style="background-color: rgba(235, 71, 70, 1); border-radius: 0 10px  10px 0; display:flex; align-items: center;
+          justify-content: center;">
+            <div (click)="emoDialog('female')">
+              <h4 style="color: #ffffff; font-size: 50px; ">{{femaleentrycount}}</h4>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <canvas baseChart [datasets]="femaleBarChartData" [labels]="ChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors2" height="70px">
+            </canvas>
+          </div>
+          <div class="col-lg-4">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card7">
+          <div class="card-title7">
+            <table class="t_detail7">
+              <tr>
+                <td style="padding: 20px 0px 0 10px;">Average <br />Walk-In </td>
+                <td rowspan="2" class="tc7_2"><img src="assets/images/entry.png" width="40px" /></td>
+              </tr>
+              <tr>
+                <td class="tc7_1">{{femaleavgwalkin}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-2">
+        <div class="card7">
+          <div class="card-title7">
+            <table class="t_detail7">
+              <tr>
+                <td style="padding: 20px 0px 0 10px;">Average <br />Walk-Out </td>
+                <td rowspan="2" class="tc7_2"><img src="assets/images/exit.png" width="40px" /></td>
+              </tr>
+              <tr>
+                <td class="tc7_1">{{femaleavgwalkout}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div style="padding: 3.2% 0;">
+      <span style="color: #f7661e; font-size: 28px; font-weight: bold; ">&#9733; Superstar of The Day</span>
+    </div>
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2"
+      style="border-color:#ece2e2; border-style:solid; border-width: 1px; width: 100%; margin: 10px 0 0 0; border-radius: 10px;">
+      <div class="col-lg-2" style="display:flex; align-items: center; justify-content: center; ">
+        <img src="assets/images/thebest.png" width="100px" />
+      </div>
+      <div class="col-lg-1" style="display:flex; align-items: center; justify-content: center; ">
+        <div style="display: block; border-color:#ece2e2;border-right:ridge 1.5px; padding: 20px 100%;">
+          <span style="color: #676767; font-size: 22px; font-weight: bold; ">The&nbsp;Best </span>
+          <span style="color: #7a7877; font-size: 22px; "> Employee</span>
+        </div>
+      </div>
+      <div class="col-lg-6" style="display:flex; align-items: center; justify-content:flex-start;padding-left: 12% ">
+        <img [src]="bestempimg" width="80px" style="border-radius: 15px;" />
+        <div style="display: block; border-color:#ece2e2;border-right:ridge 1.5px; padding: 20px 50px;" *ngIf="bestempshow">
+          <span style="color: #838383; font-size: 17px; font-weight: bold; ">{{bestempname}}</span><br />
+          <span style="color: #7a7877; font-size: 14px; ">{{bestemppo}}</span><br />
+          <span style="color: #7a7877; font-size: 14px; " *ngIf="bestempshow">ID: </span>
+          <span style="color: #7a7877; font-size: 14px; " >{{bestemp}}</span>
+        </div>
+      </div>
+      <div class="col-lg-3" style="display:flex; align-items:center; justify-content:flex-start; ">
+        <div style="display: block; text-align: left;" *ngIf="bestempshow">
+          <span style="color: #ff7701;font-size: 14px; "><b>Walk-In Time</b>: {{bestempin}} </span><br />
+          <span style="color: #ff7701;font-size: 14px; "><b>Walk-Out Time</b>: {{bestempout}}</span><br />
+          <span style="color: #ff7701;font-size: 14px; "><b>Working Hours</b>: {{bestemphour}}hrs</span><br />
+          <span style="color: #ff7701;font-size: 14px; "><b style="color: #a09a96; font-weight: normal;">Average
+              Happiness</b>: </span><br />
+          <div style="width: 200px;">
+
+            <progressbar class="probar" [value]="bestemphap" type="warning">{{bestemphap}}</progressbar>
+
+          </div><br />
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2"
+      style="border-color:#ece2e2; border-style:solid; border-width: 1px; width: 100%; margin: 10px 0 0 0; border-radius: 10px;">
+      <div class="col-lg-2" style="display:flex; align-items: center; justify-content: center; ">
+        <img src="assets/images/happyperson.png" width="100px" />
+      </div>
+      <div class="col-lg-1" style="display:flex; align-items: center; justify-content: center; ">
+        <div style="display: block; border-color:#ece2e2;border-right:ridge 1.5px; padding: 20px 90%;">
+          <span style="color: #676767; font-size: 22px; font-weight: bold; ">Happiness </span>
+          <span style="color: #7a7877; font-size: 22px; "> Person</span>
+        </div>
+      </div>
+      <div class="col-lg-6" style="display:flex; align-items: center; justify-content:flex-start;padding-left: 12% " >
+        <img [src]="happypersonimg" width="80px" style="border-radius: 15px;" />
+        <div style="display: block; border-color:#ece2e2;border-right:ridge 1.5px; padding: 20px 50px;" *ngIf="happypersonshow">
+          <span style="color: #838383; font-size: 17px; font-weight: bold; ">{{happypersonname}} </span><br />
+          <span style="color: #7a7877; font-size: 14px; ">{{happypersonpo}}</span><br />
+          <span style="color: #7a7877; font-size: 14px; " *ngIf="happypersonshow">ID: </span>
+          <span style="color: #7a7877; font-size: 14px; " >{{happyperson}}</span>
+        </div>
+      </div>
+      <div class="col-lg-3" style="display:flex; align-items:center; justify-content:flex-start; ">
+        <div style="display: block; text-align: left;" *ngIf="happypersonshow">
+          <span style="color: #ff7701;font-size: 14px; "><b style="color: #a09a96; font-weight: normal;">Walk-In
+              Time</b>: {{happyin}} </span><br />
+          <span style="color: #ff7701;font-size: 14px; "><b style="color: #a09a96; font-weight: normal;">Walk-Out
+              Time</b>: {{happyout}}</span><br />
+          <span style="color: #ff7701;font-size: 14px; "><b style="color: #a09a96; font-weight: normal;">Working
+              Hours</b>: {{happyhour}}hrs</span><br />
+
+          <span style="color: #ff7701;font-size: 14px; "><b>Average Happiness:</b></span><br />
+          <div style="width: 200px;">
+
+            <progressbar class="probar" [value]="happypersonhap" type="warning">{{happypersonhap}}</progressbar>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row d-flex justify-content-around align-items-stretch mb-auto p-2"
+      style="border-color:#ece2e2; border-style:solid; border-width: 1px; width: 100%; margin: 10px 0 0 0; border-radius: 10px;">
+      <div class="col-lg-2" style="display:flex; align-items: center; justify-content: center; ">
+        <img src="assets/images/mealover.png" width="100px" />
+      </div>
+      <div class="col-lg-1" style="display:flex; align-items: center; justify-content: center; ">
+        <div style="display: block; border-color:#ece2e2;border-right:ridge 1.5px; padding: 20px 140%;">
+          <span style="color: #676767; font-size: 22px; font-weight: bold; ">MEA </span>
+          <span style="color: #7a7877; font-size: 22px; "> Lover</span>
+        </div>
+      </div>
+      <div class="col-lg-6" style="display:flex; align-items: center; justify-content:flex-start;padding-left: 12% ">
+        <img [src]="mealoverimg" width="80px" style="border-radius: 15px;" />
+        <div style="display: block; border-color:#ece2e2;border-right:ridge 1.5px; padding: 20px 50px;" *ngIf="mealovershow">
+          <span style="color: #838383; font-size: 17px; font-weight: bold; ">{{mealovername}}</span><br />
+          <span style="color: #7a7877; font-size: 14px; ">{{mealoverpo}}</span><br />
+          <span style="color: #7a7877; font-size: 14px; " *ngIf="mealovershow">ID: </span>
+          <span style="color: #7a7877; font-size: 14px; ">{{mealover}}</span>
+        </div>
+      </div>
+      <div class="col-lg-3" style="display:flex; align-items:center; justify-content:flex-start; ">
+        <div style="display: block; text-align: left; " *ngIf="mealovershow">
+          <span style="color: #ff7701;font-size: 14px; "><b style="color: #a09a96; font-weight: normal;">Walk-In
+              Time</b>: {{mealoverin}} </span><br />
+          <span style="color: #ff7701;font-size: 14px; "><b style="color: #a09a96; font-weight: normal;">Walk-Out
+              Time</b>: {{mealoverout}}</span><br />
+          <span style="color: #ff7701;font-size: 14px; "><b>Working Hours</b>: {{mealoverhour}}hrs</span><br />
+
+          <span style="color: #ff7701;font-size: 14px; "><b>Average Happiness</b>: </span><br />
+          <div style="width: 200px;">
+
+            <progressbar class="probar"  [value]="mealoverhap" type="warning">{{mealoverhap}}</progressbar>
+
+          </div><br />
+        </div>
+      </div>
+    </div>
+
+  </nb-card-body>
+</nb-card>

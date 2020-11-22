@@ -1,0 +1,41 @@
+<div class="frame">
+  <nb-card>
+    <nb-card-header>
+      Add Employee For Mornitoring
+    </nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="addalert" (ngSubmit)="onSubmit(addalert.value)">
+        <div>
+          <label for="id" style="padding-top: 10px;">
+              รหัสพนักงาน: &nbsp;
+          </label>
+          <input nbInput fullWidth id="id" class="textfield" formControlName="id">
+        </div>
+        <div>
+          <label for="walkinalert" style="padding-top: 10px;">
+            แจ้งเตือนขาเข้า: &nbsp;
+          </label>
+          <input  type="checkbox" fullWidth id="walkinalert" formControlName="walkinalert">
+        </div>
+        <div>
+          <label for="walkoutalert" style="padding-top: 10px;">
+            แจ้งเตือนขาออก: &nbsp;
+          </label>
+          <input  type="checkbox" fullWidth id="walkoutalert" formControlName="walkoutalert">
+        </div>
+        <div>
+          <label for="email" style="padding-top: 10px;">
+            ส่งการแจ้งเตือน (email): &nbsp;
+          </label>
+          <input nbInput fullWidth id="email" class="textfield" formControlName="email">
+        </div>
+        <br>
+        <a style="color: red;"  *ngIf="showerr">โปรดกรอกรหัสพนักงาน<br></a>
+        <a style="color: red;"  *ngIf="showerr1">โปรดระบุ Email เพื่อส่งการแจ้งเตือน <br></a>
+        <button nbButton status="primary" type="submit" style=" font-size: 12px; background-color: #FF7701; color: white; border-color: #FF7701;"><img src="../assets/images/confirm.png"  style="width: 16px; height: 16px;"/>&nbsp;Comfirm</button>
+      </form>
+
+    </nb-card-body>
+
+  </nb-card>
+</div>

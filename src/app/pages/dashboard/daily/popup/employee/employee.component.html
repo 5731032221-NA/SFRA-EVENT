@@ -1,0 +1,32 @@
+<div class="frame">
+    <h1 mat-dialog-title class="hd">Employee List</h1>
+    <!-- <div mat-dialog-content>
+  <p>What's your email?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+</div> -->
+   <div class="tablebg">
+    <table mdbTable style="width: 100%;">
+        <thead>
+            <tr>
+                <th *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr mdbTableCol *ngFor="let el of dataSource |  paginate: { currentPage: p, itemsPerPage: itemsPerPage }; let i= index; ">
+                <td scope="row" style="padding-right: 5%; padding-left: 5%;">{{ itemsPerPage * (p - 1) + i + 1}}</td>
+                <td>{{el.id}}</td>
+                <td style="text-align: left; padding-left: 10%;">{{el.title}} {{el.name}} {{el.surname}}</td>
+                <td  style="padding-right: 5%; padding-left: 5%;"><img [src]="el.image_data" /></td>
+            </tr>
+        </tbody>
+
+    </table>
+   </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <!-- <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Close</button>
+    </div> -->
+</div>

@@ -1,0 +1,31 @@
+<div class="frame">
+  <nb-card>
+    <nb-card-header>
+      แก้ไขข้อมูล
+    </nb-card-header>
+    <nb-card-body style="background-color: white;">
+      <div mat-dialog-content>
+        <div class="row">
+          <div class="col-sm-6" style="border-right:ridge 1.5px;">
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+              <div>
+                <label for="Confidence" style="padding-top: 10px;">
+                  Confidence: &nbsp;
+                </label>
+                <input id="Confidence" nbInput fullWidth type="text" formControlName="Confidence">
+              </div>
+             
+              <br />
+              <button nbButton style="background-color: #FF7701; color: white; border-color: #ffffff;"
+                type="submit">แก้ไขข้อมูล</button>
+              &nbsp;&nbsp;
+              <button nbButton style="background-color: #C7C7C7; color: white; border-color: #C7C7C7;"
+                (click)="dialogRef.close(false)">ยกเลิก</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

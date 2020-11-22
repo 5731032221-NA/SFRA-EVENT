@@ -1,0 +1,73 @@
+<div class="frame">
+  <ngx-spinner></ngx-spinner>
+  <nb-card>
+    <nb-card-header>
+      แก้ไขข้อมูลพนักงาน
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-sm-6" style="border-right:ridge 1.5px;">
+          <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+            <div>
+              <label for="title" style="padding-top: 10px;">
+                คำนำหน้าชื่อ: &nbsp;
+              </label>
+              <input id="title" nbInput fullWidth type="text" formControlName="title">
+            </div>
+
+            <div>
+              <label for="name" style="padding-top: 10px;">
+                ชื่อ: &nbsp;
+              </label>
+              <input id="name" nbInput fullWidth type="text" formControlName="name">
+            </div>
+
+            <div>
+              <label for="surname" style="padding-top: 10px;">
+                นามสกุล: &nbsp;
+              </label>
+              <input id="surname" nbInput fullWidth type="text" formControlName="surname">
+            </div>
+
+            <div>
+              <label for="position" style="padding-top: 10px;">
+                ตำแหน่ง: &nbsp;
+              </label>
+              <input id="position" nbInput fullWidth type="text" formControlName="position">
+            </div>
+
+            <div>
+              <label for="email" style="padding-top: 10px;">
+                อีเมล: &nbsp;
+              </label>
+              <input id="email" nbInput fullWidth type="text" formControlName="email">
+            </div>
+
+
+            <br />
+            <button nbButton style="background-color: #FF7701; color: white; border-color: #ffffff;"
+              type="submit">แก้ไขข้อมูล</button>
+            &nbsp;&nbsp;
+            <button nbButton style="background-color: #C7C7C7; color: white; border-color: #C7C7C7;"
+              (click)="dialogRef.close(false)">ยกเลิก</button>
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <div style="padding-top: 20px; padding-bottom: 20px;">
+            <label for="image">
+              รูปภาพ: &nbsp;
+            </label>
+            <br />
+            <img [src]="profileimage" />
+            <input nbButton type="file" style="margin-top: 15px; margin-bottom: 15px;" (change)="onFileChanged($event)">
+            <button style="background-color: #808080; border-color: #ffffff;" nbButton status="primary" type="submit"
+              (click)="onSubmitPic()">เทรนรูปใหม่</button>
+          </div>
+        </div>
+      </div>
+
+    </nb-card-body>
+
+  </nb-card>
+</div>

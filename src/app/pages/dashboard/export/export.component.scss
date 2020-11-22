@@ -1,0 +1,66 @@
+// @import '../../../@theme/styles/themes';
+//@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+// table {
+//   font-family: arial, sans-serif;
+//   border-collapse: collapse;
+//   width: 100%;
+// }
+.form-inline [fullWidth] {
+  flex: 1;
+}
+
+.form-inline > * {
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+  padding-bottom: 0;
+}
+
+.form-group.hidden {
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+.custom-day.disabled{
+  color: #999;
+  background-color: #DDD;
+}
+
+::ng-deep datepicker-value-example .mat-form-field-label{
+  color:#ff7701;;
+}
+
+::ng-deep .mat-datepicker-toggle{
+  color:red;;
+}
+::ng-deep .mat-form-field-underline{
+background: #ff7701;;
+}
+
+tr {text-align: center; border-radius: 30px; border-collapse: collapse; overflow: hidden;}
+  tr:nth-child(even) {background-color: #F8F8F8;
+    border-radius: 30px; border-collapse: collapse; overflow: hidden;
+    }
+    

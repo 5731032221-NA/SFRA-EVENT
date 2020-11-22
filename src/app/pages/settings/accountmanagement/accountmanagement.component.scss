@@ -1,0 +1,26 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .delete-icon {
+    color: #A11;
+  }
+  tr {text-align: center; border-radius: 30px; border-collapse: collapse; overflow: hidden;}
+  tr:nth-child(even) {background-color: #F8F8F8;
+    border-radius: 30px;border-collapse: collapse; overflow: hidden;
+    }
+  // button:hover {
+  //   background-color: rgb(243, 200, 119); /* Green */
+  //   color: black;
+  // }
+  // th {
+  //   background-color: #FFA500;
+  //   color: white;
+  // }
+  // th.id {
+  //   width: 40% ;
+  // }
+}

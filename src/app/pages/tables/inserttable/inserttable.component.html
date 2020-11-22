@@ -1,0 +1,104 @@
+
+<nb-card>
+  <ngx-spinner></ngx-spinner>
+  <nb-card-header>
+    Add New Employee
+  </nb-card-header>
+  <nb-card-body>
+
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+      <div>
+        <label for="id" style="padding-top: 10px;">
+          รหัสพนักงาน: &nbsp;
+        </label>
+        <input nbInput fullWidth id="id" type="text" formControlName="id">
+      </div>
+
+      <div>
+        <label for="title" style="padding-top: 10px;">
+          คำนำหน้าชื่อ: &nbsp;
+        </label>
+        
+        <select style="background-color:#f7f9fc;border-color:#edf1f7;" class="form-control"  id="title" formControlName="title" required>
+        
+    <option *ngFor="let title of titles" [value]="title">{{title}}</option>
+  </select>
+
+  <!-- <input [nbDatepicker]="titles"> -->
+  <!-- <nb-datepicker #datepicker></nb-datepicker> -->
+
+       
+        <!-- <input id="name" type="text" formControlName="title"> -->
+      </div>
+      <div>
+        <label for="name" style="padding-top: 10px;">
+          ชื่อ: &nbsp;
+        </label>
+        <input nbInput fullWidth id="name" type="text" formControlName="name">
+      </div>
+
+      <div>
+        <label for="surname" style="padding-top: 10px;">
+          นามสกุล: &nbsp;
+        </label>
+        <input  nbInput fullWidth id="surname" type="text" formControlName="surname">
+      </div>
+
+      <div>
+        <label for="email" style="padding-top: 10px;">
+          อีเมล: &nbsp;
+        </label>
+        <input  nbInput fullWidth id="email" type="text" formControlName="email">
+      </div>
+
+      <div>
+        <label for="position" style="padding-top: 10px;">
+          ตำแหน่ง: &nbsp;
+        </label>
+        <input  nbInput fullWidth id="position" type="text" formControlName="position">
+      </div>
+
+      <div style="padding-bottom: 10px;">
+        <label for="image" style="padding-top: 20px;">
+          รูปภาพ: &nbsp;
+        </label>
+        <input nbButton  type="file" (change)="onFileChanged($event)">
+      </div>
+
+
+      <button nbButton status="primary"  type="submit" style=" font-size: 12px; background-color: #FF7701; color: white; border-color: #FF7701;"><img src="../assets/images/addacc.png"  style="width: 16px; height: 16px;"/>&nbsp;Add New Employee</button>
+      <!-- <button nbButton >เพิ่มข้อมูล</button> -->
+
+    </form>
+
+    <!-- <label class="search-label" for="search">Search:</label>
+    <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
+
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+
+      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+      <ng-container [nbTreeGridColumnDef]="customColumn">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+          {{customColumn}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          <ngx-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></ngx-fs-icon>
+          {{row.data[customColumn]}}
+        </td>
+      </ng-container>
+
+      <ng-container *ngFor="let column of defaultColumns; let index = index"
+                    [nbTreeGridColumnDef]="column"
+                    [showOn]="getShowOn(index)">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+          {{column}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+      </ng-container>
+
+    </table> -->
+
+  </nb-card-body>
+</nb-card>

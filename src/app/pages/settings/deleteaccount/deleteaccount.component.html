@@ -1,0 +1,19 @@
+<div class="frame">
+  <nb-card>
+    <nb-card-header>
+    ลบข้อมูลพนักงาน
+    </nb-card-header>  
+    <nb-card-body style="background-color: white;">
+    <div mat-dialog-content >
+      <p style="color: #FF7701; font-weight: bold;">ท่านต้องการลบข้อมูล {{data.username}} ใช่หรือไม่?</p>
+      <p style="color: #C7C7C7; font-weight: bold;">คำเตือน ! หากลบแล้ว ท่านจะไม่สามารถกู้ข้อมูลนี้คืนได้อีก ...</p>
+      <div md-dialog-actions >
+        
+        <button   nbButton style="background-color: #FF7701; color: white; border-color: #ffffff;" (click)="onSubmit()">ยืนยัน</button>
+        &nbsp;&nbsp;
+        <button  nbButton style="background-color: #C7C7C7; color: white; border-color: #C7C7C7;"  (click)="dialogRef.close(false)">ยกเลิก</button>
+      </div>
+    </div>
+    </nb-card-body>
+  </nb-card>
+</div>

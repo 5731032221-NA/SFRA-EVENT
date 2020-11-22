@@ -1,0 +1,20 @@
+@import '../../../@theme/styles/themes';
+//@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@include nb-install-component() {
+  nb-card {
+    width: 100%;
+  }
+  img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    pointer-events: none;
+  }
+img.tb {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    pointer-events: none;
+  }  
+  
+}
