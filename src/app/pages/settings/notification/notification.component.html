@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>
-    <div style="color: #ff7701;">&#9125; Notification &#8227; Daily Report </div>
+    <div style="color:#0066b2;">&#9125; Notification &#8227; Daily Report </div>
   </nb-card-header>
   <nb-card-body>
 
@@ -30,12 +30,12 @@
     <!-- <a>Add New Email: </a> -->
     <div>
       <form [formGroup]="checkoutForm" (ngSubmit)="addTodo(checkoutForm.value)">
-        <label for="addemail" style="padding-top: 10px; color: #FF7701; font-weight: bold;">
+        <label for="addemail" style="padding-top: 10px; color:#0066b2; font-weight: bold;">
           Add New Email: &nbsp;
         </label>
         <input nbInput id="email" class="textfield" formControlName="email">
         <button nbButton status="primary" type="submit"
-          style=" font-size: 12px; background-color: #FF7701; color: white; border-color: #FF7701;"><img
+          style=" font-size: 12px; background-color:#0066b2; color: white; border-color:#0066b2;"><img
             src="../assets/images/email.png" style="width: 15px; height: 15px;" /> &nbsp; Add Email</button>
       </form>
     </div>
@@ -44,7 +44,7 @@
 
 <nb-card>
   <nb-card-header>
-    <div style="color: #ff7701;">&#9125; Notification &#8227; Individual Alert </div>
+    <div style="color:#0066b2;">&#9125; Notification &#8227; Individual Alert </div>
   </nb-card-header>
   <nb-card-body>
 
@@ -78,10 +78,10 @@
     <!-- <a>Add New Email: </a> -->
     <div>
     
-      <label for="addemail" style="padding-top: 10px; color: #FF7701; font-weight: bold;">
+      <label for="addemail" style="padding-top: 10px; color:#0066b2; font-weight: bold;">
         Add New Alert: 
       </label>
-      <button nbButton status="primary" type="submit" (click)="addnotiDialog()" style=" font-size: 12px; background-color: #FF7701; color: white; border-color: #FF7701;"><img src="../assets/images/addacc.png"  style="width: 16px; height: 16px;"/>&nbsp;Add Employee</button>
+      <button nbButton status="primary" type="submit" (click)="addnotiDialog()" style=" font-size: 12px; background-color:#0066b2; color: white; border-color:#0066b2;"><img src="../assets/images/addacc.png"  style="width: 16px; height: 16px;"/>&nbsp;Add Employee</button>
     </div>
   </nb-card-body>
 </nb-card>

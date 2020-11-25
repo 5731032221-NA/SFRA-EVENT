@@ -155,11 +155,11 @@ export class TreeGridComponent {
             this.http.post<any>('http://20.188.110.129:3000/postmeaprofile', customerData, options).subscribe(done => //console.log(done)
               // console.log(az1)
               this.http.post<any[]>('http://20.188.110.129:3000/adddefault', '{"url":"' + customerData.image + '", "id":"' + customerData.id + '"}', options).subscribe((adddefault) => {
-                this.http.post<any>('http://20.188.110.129:3000/insertsqlprofile/'+customerData.id, customerData, options).subscribe(done => {//console.log(done)
+                // this.http.post<any>('http://20.188.110.129:3000/insertsqlprofile/'+customerData.id, customerData, options).subscribe(done => {//console.log(done)
 
                   this.spinner.hide();
                   this.router.navigate(['/pages/tables/table'])
-                })
+                // })
               })
 
             )

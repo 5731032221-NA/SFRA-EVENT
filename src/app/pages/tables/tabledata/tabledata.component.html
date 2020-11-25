@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>
-    <div style="color: #ff7701;">&#9125; Employee Info.</div>
+    <div style="color:#0066b2;">&#9125; EMPLOYEE INFO.</div>
   </nb-card-header>
 
   <nb-card-body>
@@ -24,12 +24,12 @@
           <td style="color:#1e76fa;" (click)="attendanceDialog(el.id)">{{el.checkin}}</td>
           <td style="color:#04d632;" (click)="attendanceDialog(el.id)">{{el.checkout}}</td>
           <td><a style="padding-top: 20px;"><br><a style="text-align: left; padding-left: 10px; size: 10px; ">> {{el.per}}%</a></a><button
-              nbButton status="warning" style=" font-size: 12px; background-color: #FF7701; color: white; margin-bottom: 20px;" type="button"
+              nbButton status="warning" style=" font-size: 12px; background-color:#0066b2; color: white;border-style: none; margin-bottom: 20px;" type="button"
               class="close" aria-label="Close" (click)="editDialog(el.id,el.per)">
               <img src="../assets/images/edit.png" style="width: 14px; height: 13px; " /></button>
           </td>
           <div style="margin: auto; padding: 15px;">
-            <button nbButton status="warning" style=" font-size: 12px; background-color: #FF7701; color: white;"
+            <button nbButton status="warning" style=" font-size: 12px; background-color:#0066b2; color: white; border-style: none;"
               id="edit" (click)="emoDialog(el._id, el.id, el.faceid)"> <img src="../assets/images/edit.png"
                 style="width: 15px; height: 15px;" />&nbsp;Edit</button>
             &nbsp;

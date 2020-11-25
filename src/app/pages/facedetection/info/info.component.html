@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>
-    <div style="color: #ff7701;">&#9125; Traning</div>
+    <div style="color:#0066b2;">&#9125; TRAINING</div>
   </nb-card-header>
 
   <nb-card-body>
@@ -64,7 +64,7 @@
             <!--  - {{el.title}} {{el.name}} {{el.surname}} {{el.per}} -->
             <!-- <form> -->
             <td><a style="text-align: left; padding-left: 10px; size: 10px; ">มากกว่า {{el.individual_confidence}}%</a><button
-                nbButton status="warning" style=" font-size: 12px; background-color: #FF7701; color: white;"
+                nbButton status="warning" style=" font-size: 12px; background-color:#0066b2; color: white;"
                 type="button" class="close" aria-label="Close"
                 (click)="editDialog(el.detected,el.individual_confidence)">
                 <img src="../assets/images/edit.png" style="width: 14px; height: 13px; padding-top: 0px;" /></button>
@@ -74,13 +74,13 @@
                 <option *ngFor="let item of listmea" [attr.selected]="el.detected==item.id ? true : null">{{item.id}} - {{item.title}} {{item.name}}
                   {{item.surname}}</option>
               </select>
-              <button nbButton status="warning" style=" font-size: 12px; background-color: #FF7701; color: white;"
+              <button nbButton status="warning" style=" font-size: 12px; background-color:#0066b2; color: white;"
                 id="edit"
                 (click)="trainDialog(el.name,el.title,el.nameem,el.surname,el._id,el.datetime,el.date,el.camera)">&nbsp;train</button>
             </td>
 
             <!-- </form> -->
-            <!-- <button nbButton status="warning" style=" font-size: 12px; background-color: #FF7701; color: white;"
+            <!-- <button nbButton status="warning" style=" font-size: 12px; background-color:#0066b2; color: white;"
               id="edit" (click)="trainDialog(el.name, item)">&nbsp;train</button> -->
             <td style="text-align: left; padding-left: 10px;">{{el.train}} - {{el.ttitle}} {{el.tnameem}}
               {{el.tsurname}} </td>
