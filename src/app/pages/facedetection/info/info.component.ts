@@ -119,6 +119,7 @@ export class InfoComponent implements OnInit {
         this.listmea = list;
         var pagefrom = (this.p2 - 1) * this.itemsPerPage2;
         var pageto = this.p2 * this.itemsPerPage2;
+        if(pageto>cropinfo.length) pageto = cropinfo.length;
         for (var page = pagefrom; page < pageto; page++) {
           let index = page
           this.http.get<any[]>('http://20.188.110.129:3000/getcropimage/' + cropinfo[index].name).subscribe((image) => {
